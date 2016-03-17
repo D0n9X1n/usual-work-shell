@@ -54,20 +54,23 @@ do
             ;;
         ?)
             printMan
+            out=1
             ;;
     esac
 done
-
-if [[ x$user == x ]]; then
-    if [[ x$day == x ]]; then
-        git log --since=1.day --author="$(git config --get user.name)" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
+if [[ x$out == x ]]; then
+    if [[ x$user == x ]]; then
+        if [[ x$day == x ]]; then
+            git log --since=1.day --author="$(git config --get user.name)" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
+        else
+            git log --since=$day.days --author="$(git config --get user.name)" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
+        fi
     else
-        git log --since=$day.days --author="$(git config --get user.name)" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
-    fi
-else
-    if [[ x$day == x ]]; then
-        git log --since=1.day --author="$user" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
-    else
-        git log --since=$day.days --author="$user" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
+        if [[ x$day == x ]]; then
+            git log --since=1.day --author="$user" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
+        else
+            git log --since=$day.days --author="$user" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }' -
+        fi
     fi
 fi
+
