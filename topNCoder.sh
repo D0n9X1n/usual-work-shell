@@ -54,7 +54,7 @@ do
     esac
 done
 
-if [[ x$out != x ]]; then
+if [[ x$out == x ]]; then
     if [[ x$num == x ]]; then
         git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r
     else
