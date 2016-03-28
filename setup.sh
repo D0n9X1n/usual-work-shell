@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo "Let's install the usual work shell"
-chmod +x *.sh
-sudo cp *.sh /usr/local/bin/
-sudo rm /usr/local/bin/setup.sh
+chmod +x ./scripts/*.sh
+sudo cp ./scripts/*.sh /usr/local/bin/
 echo "Finish install ok"
