@@ -1,23 +1,4 @@
 #!/bin/bash
-
-project=$1
-
-if [[ X$project == X ]]; then
-    echo 'No project Name'
-else
-    echo 'Creating ' $project
-    mkdir $project
-    cd $project
-    echo 'Creating LICENSE ( MIT )'
-    createLicense
-    echo 'Finish LICENSE'
-    echo 'Creating .gitignore'
-    createGitIgnore
-    echo 'Finish .gitignore'
-    touch ReadMe.md
-    echo 'Finish Create Project: ' $project ' .Enjoy coding!'
-fi
-
 function createGitIgnore() {
     echo '# Created by .ignore support plugin (hsz.mobi)
 ### *.iml template
@@ -208,3 +189,23 @@ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.' > LICENSE
 }
+
+
+project=$1
+
+if [[ X$project == X ]]; then
+    echo 'No project Name'
+else
+    echo 'Creating ' $project
+    mkdir $project
+    cd $project
+    echo 'Creating LICENSE ( MIT )'
+    createLicense
+    echo 'Finish LICENSE'
+    echo 'Creating .gitignore'
+    createGitIgnore
+    echo 'Finish .gitignore'
+    touch ReadMe.md
+    echo 'Finish Create Project: ' $project ' .Enjoy coding!'
+fi
+
