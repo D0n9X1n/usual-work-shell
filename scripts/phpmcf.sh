@@ -70,7 +70,7 @@ else
 fi
 echo "into $nowdir"
 
-function SearchCfile() {
+function findPhpFile() {
     echo "find all php files in $(pwd)"
     cfilelist=$(ls | grep "\.php$")
     for cfilename in $cfilelist
@@ -86,12 +86,12 @@ function SearchCfile() {
     do
         if [ -d "$dirname" ]; then
             cd $dirname
-            SearchCfile
+            findPhpFile
             cd ..
         fi
     done
 }
 
 cd $nowdir
-SearchCfile
+findPhpFile
 echo "done."

@@ -84,7 +84,7 @@ else
 fi
 echo "into $nowdir"
 
-function SearchCfile() {
+function searchFiles() {
     echo "find all $filter files"
     if [[ x$filter == x ]]; then
         cfilelist=$(ls)
@@ -104,7 +104,7 @@ function SearchCfile() {
     do
         if [ -d "$dirname" ]; then
             cd $dirname
-            SearchCfile
+            searchFiles
             cd ..
         fi
     done
@@ -112,7 +112,7 @@ function SearchCfile() {
 
 rm -rf /tmp/$outFile
 cd $nowdir
-SearchCfile
+searchFiles
 echo "finish find code, copy /tmp/$outFile to your home folder..."
 cp /tmp/$outFile ~/$outFil
 echo "done"
