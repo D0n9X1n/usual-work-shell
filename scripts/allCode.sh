@@ -87,7 +87,6 @@ echo "into $nowdir"
 function SearchCfile() {
     echo "find all $filter files"
     if [[ x$filter == x ]]; then
-        echo "no filter, will find all files"
         cfilelist=$(ls)
     else
         cfilelist=$(ls | grep "\.$filter$")
@@ -111,6 +110,7 @@ function SearchCfile() {
     done
 }
 
+rm -rf /tmp/$outFile
 cd $nowdir
 SearchCfile
 echo "finish find code, copy /tmp/$outFile to your home folder..."
