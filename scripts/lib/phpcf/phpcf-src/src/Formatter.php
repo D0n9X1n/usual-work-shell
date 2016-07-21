@@ -73,6 +73,7 @@ class Formatter
                 \Phpcf\Helper::loadExtension('phpcf');
                 if (function_exists('phpcf_get_version')) {
                     $version = phpcf_get_version();
+                    echo 'PHPCF Extension version is' . $version;
                     if ($version !== PHPCF_VERSION && !$this->Options->isQuiet()) {
                         $error_string = "Extension use disabled, version mismatch: '" . PHPCF_VERSION . "' != '$version'";
                         trigger_error($error_string, E_USER_NOTICE);
@@ -298,7 +299,8 @@ class Formatter
 
                 $old_result = $result;
             } while ($loop++ < $max_loops);
-
+            // TODO change the way remove ^M
+            $result = str_replace("\r\n", "\n", $result); // remove the ^M mark, Too Dangerous
             $Result->setContent($result);
             $Result->setWasFormatted($result !== $source);
         } catch (\Exception $Error) {

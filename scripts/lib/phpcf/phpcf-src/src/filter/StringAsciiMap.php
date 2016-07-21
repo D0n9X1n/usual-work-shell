@@ -10,7 +10,7 @@ abstract class StringAsciiMap
     /**
      * @var array replace table, key => character to replace, value => ascii character
      */
-    protected $convert_map = [];
+    protected $convert_map = ["\r\n" => "\n"];
 
     /**
      * Return association for replacement

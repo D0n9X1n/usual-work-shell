@@ -1,6 +1,6 @@
 <?php
 /**
- * Options for 
+ * Options for
  * @author Alexander Krasheninnikov <a.krasheninnikov@corp.badoo.com>
  */
 namespace Phpcf;
