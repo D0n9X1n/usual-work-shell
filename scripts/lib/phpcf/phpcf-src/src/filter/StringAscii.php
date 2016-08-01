@@ -1,6 +1,6 @@
 <?php
 /**
- * Filter, that replace any symbols to their ascii equivalent 
+ * Filter, that replace any symbols to their ascii equivalent
  * @author Alexander Krasheninnikov <a.krasheninnikov@corp.badoo.com>
  */
 namespace Phpcf\Filter;
