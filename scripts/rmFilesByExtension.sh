@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./common/*.sh
+
 function printMan() {
     echo "ALLCODE                       MIT LICENSE                         ALLCODE"
     echo ""
@@ -27,17 +29,18 @@ function printMan() {
     echo ""
     echo "              sh rmFileByExtension.sh -d . -f sh"
     echo "      Result:"
-    echo "              :!sh allCode.sh -d . -f sh -o result.code"
-    echo "              into /Users/Mike/Workspace/my-shell/usual-work-shell/scripts"
-    echo "              find all sh files"
-    echo "              /Users/Mike/Workspace/my-shell/usual-work-shell/scripts/allCode.sh"
-    echo "              /Users/Mike/Workspace/my-shell/usual-work-shell/scripts/checkWork.sh"
-    echo "              /Users/Mike/Workspace/my-shell/usual-work-shell/scripts/initProject.sh"
-    echo "              /Users/Mike/Workspace/my-shell/usual-work-shell/scripts/topNCoder.sh"
-    echo "              finish find code, copy /tmp/result.code to your home folder..."
-    echo "              done."
-    echo ""
-    echo "      will get all the shell code into /${HOME}/result.code"
+    echo "              rmFilesByExtension.sh -f sql -d ."
+    echo "              into /Users/Mike/dumps"
+    echo "              find all sql files"
+    echo "              find all sql files"
+    echo "              find and remove file :  /Users/Mike/dumps/f/dd.sql"
+    echo "              find all sql files"
+    echo "              find all sql files"
+    echo "              find and remove file :  /Users/Mike/dumps/ff/ww.sql"
+    echo "              find all sql files"
+    echo "              find and remove file :  /Users/Mike/dumps/fff.sql"
+    echo "              finish rm code."
+    echo "              done"
     echo ""
     echo "MIT                           July 11, 2016                           MIT"
 }
@@ -96,8 +99,8 @@ function findAllFile() {
                 sureRm=true
             fi
         fi
-
     fi
+
     ls | while read var
         do
             if [[ -f $var ]]; then
@@ -105,8 +108,8 @@ function findAllFile() {
                     echo 'find and remove file : ' "$(pwd)/$var"
                     rm "$(pwd)/$var"
                 fi
-
             fi
+
             if [[ -d $var ]]; then
                 cd "$(pwd)/$var"
                 findAllFile
