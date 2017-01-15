@@ -29,7 +29,7 @@ function findAllFileWithSameExtension() {
             if [[ -f $file ]]; then
                 if [[ x$filter != x && $file =~ \.$filter ]]; then
                     echo 'do work with the func:'$func
-                    $func
+                    $func $file
                 fi
             fi
 
@@ -41,4 +41,4 @@ function findAllFileWithSameExtension() {
         done
 }
 
-findAllFileWithSameExtension ls php
+findAllFileWithSameExtension echo php
