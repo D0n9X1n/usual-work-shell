@@ -1,4 +1,8 @@
 #!/bin/bash
+function createGithubFiles() {
+    cp -R /usr/local/bin/res/github-template .github
+}
+
 function createGitIgnore() {
     echo '# Created by .ignore support plugin (hsz.mobi)
 ### *.iml template
@@ -206,6 +210,7 @@ else
     createGitIgnore
     echo 'Finish .gitignore'
     touch ReadMe.md
+    createGithubFiles
     echo 'Finish Create Project: ' $project ' .Enjoy coding!'
 fi
 
