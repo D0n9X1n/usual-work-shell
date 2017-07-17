@@ -210,7 +210,10 @@ else
     createGitIgnore
     echo 'Finish .gitignore'
     touch ReadMe.md
+    echo 'Creating .github templates'
     createGithubFiles
-    echo 'Finish Create Project: ' $project ' .Enjoy coding!'
+    echo 'Finish creating templates'
+    echo 'Finish Create Project: ' $project 
+    echo 'Just enjoy coding!'
 fi
 
