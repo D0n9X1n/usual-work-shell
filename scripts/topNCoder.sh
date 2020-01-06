@@ -43,6 +43,7 @@ do
     case $arg in
         h)
             printMan
+            out=1
             ;;
         n)
             num=$OPTARG
